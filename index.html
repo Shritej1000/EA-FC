@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>MARTIAN | EA FC Pro Athlete</title>
+  <meta content="Official portfolio of a World Champion EA FC Esports Athlete." name="description"/>
+  
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#ff3800',
+            dark: '#0a0a0a',
+            surface: '#121212',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          borderRadius: {
+            'custom': '8px',
+          },
+        }
+      }
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+  <style data-purpose="global-styles">
+    body {
+      background-color: #0a0a0a;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+    .text-glow {
+      text-shadow: 0 0 20px rgba(255, 56, 0, 0.4);
+    }
+    .glass-card {
+      background: rgba(18, 18, 18, 0.8);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .gradient-border {
+      position: relative;
+    }
+    .gradient-border::after {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      background: linear-gradient(45deg, transparent, #ff3800, transparent);
+      z-index: -1;
+      border-radius: 8px;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a0a0a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1a1a1a;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ff3800;
+    }
+    .text-glow-premium {
+      text-shadow: 0 0 30px rgba(255, 56, 0, 0.6), 0 0 60px rgba(255, 56, 0, 0.2);
+    }
+    .animate-pulse-slow {
+      animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 20px rgba(255, 56, 0, 0.4); }
+      50% { opacity: .8; transform: scale(1.05); box-shadow: 0 0 40px rgba(255, 56, 0, 0.8); }
+    }
+    .timeline-dot::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, #ff3800, transparent);
+      transform: translateX(-50%);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased">
+
+  <nav class="fixed top-0 w-full z-50 py-6 px-8 flex justify-between items-center mix-blend-difference">
+    <div class="text-xl font-black tracking-tighter">MART<span class="text-brand">IAN</span></div>
+    <div class="hidden md:flex gap-10 text-xs font-bold uppercase tracking-widest text-white/70">
+      <a class="hover:text-brand transition-colors" href="#hero">Home</a>
+      <a class="hover:text-brand transition-colors" href="#trophies">Trophies</a>
+      <a class="hover:text-brand transition-colors" href="#about">About</a>
+      <a class="hover:text-brand transition-colors" href="#contact">Contact</a>
+    </div>
+  </nav>
+  <section class="relative h-screen w-full flex items-center justify-center overflow-hidden" data-purpose="hero-section" id="hero">
+    <div class="absolute inset-0 z-0" id="canvas-container"></div>
+    <div class="relative z-10 text-center px-4">
+      <span class="block text-brand font-bold tracking-[0.3em] uppercase mb-4 animate-pulse">Ultimate Athlete</span>
+      <h1 class="text-7xl md:text-9xl font-black tracking-tighter uppercase leading-none text-glow">
+        World<br/><span class="text-brand">Champion</span>
+      </h1>
+      <p class="mt-8 text-white/50 max-w-lg mx-auto font-light leading-relaxed">
+        Rewriting the history of EA FC. Dominance on the pitch, excellence in the pixels.
+      </p>
+      <div class="mt-12 flex flex-col md:flex-row gap-4 justify-center">
+        <a class="bg-brand text-black px-10 py-4 font-black uppercase tracking-widest rounded-custom hover:bg-white transition-all transform hover:scale-105" href="#trophies">View Stats</a>
+        <a class="border border-white/10 px-10 py-4 font-black uppercase tracking-widest rounded-custom hover:bg-white/5 transition-all" href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30">
+      <div class="w-[1px] h-12 bg-gradient-to-b from-brand to-transparent"></div>
+      <span class="text-[10px] uppercase tracking-widest">Scroll</span>
+    </div>
+  </section>
+  <section class="pt-32 pb-16 bg-dark relative" data-purpose="trophy-room" id="trophies">
+    <div class="max-w-7xl mx-auto px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+        <div>
+          <h2 class="text-5xl font-black uppercase tracking-tighter mb-4">Trophy <span class="text-brand">Room</span></h2>
+          <div class="h-1 w-20 bg-brand"></div>
+        </div>
+        <p class="text-white/40 max-w-sm">A decade of competitive excellence condensed into elite silverware.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="glass-card p-10 rounded-custom group hover:border-brand/50 transition-all duration-500">
+          <div class="text-brand text-4xl font-black mb-6">01</div>
+          <h3 class="text-2xl font-bold uppercase mb-2">FC PRO World Cup</h3>
+          <p class="text-white/40 mb-8 text-sm">Riyadh, 2023 • Winner | Riyadh, 2024 • Runner-up | Riyadh, 2025 • Winner</p>
+          <div class="w-full h-40 bg-white/5 rounded-custom flex items-center justify-center group-hover:bg-brand/10 transition-colors">
+            <img alt="World Finals Trophy" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" src="D:\front-end\EA FC - PORTFOLIO\FC-WC.png"/>
+          </div>
+        </div>
+        <div class="glass-card p-10 rounded-custom group hover:border-brand/50 transition-all duration-500 border-brand/20">
+          <div class="text-brand text-4xl font-black mb-6">02</div>
+          <h3 class="text-2xl font-bold uppercase mb-2">E-Champions League</h3>
+          <p class="text-white/40 mb-8 text-sm">Paris, 2023 • Winner | Berlin, 2024 • Winner</p>
+          <div class="w-full h-40 bg-white/5 rounded-custom flex items-center justify-center group-hover:bg-brand/10 transition-colors">
+            <img alt="E-League Trophy" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" src="D:\front-end\EA FC - PORTFOLIO\E-Champios.png"/>
+          </div>
+        </div>
+        <div class="glass-card p-10 rounded-custom group hover:border-brand/50 transition-all duration-500">
+          <div class="text-brand text-4xl font-black mb-6">03</div>
+          <h3 class="text-2xl font-bold uppercase mb-2">FC Open</h3>
+          <p class="text-white/40 mb-8 text-sm">Dubai, 2022 • Winner | Singapore, 2023 • Runner-up | Mumbai, 2024 • Winner | Manila, 2025 • Winner</p>
+          <div class="w-full h-40 bg-white/5 rounded-custom flex items-center justify-center group-hover:bg-brand/10 transition-colors">
+            <img alt="Global Series Trophy" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" src="D:\front-end\EA FC - PORTFOLIO\FC-OPEN.png"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="pb-32 bg-dark" id="achievements">
+    <div class="max-w-7xl mx-auto px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="border border-white/5 bg-surface p-8 rounded-custom text-center hover:border-brand/30 transition-all duration-300 hover:-translate-y-1">
+          <div class="text-4xl font-black text-brand mb-2">9</div>
+          <div class="text-[10px] uppercase tracking-widest text-white/50 font-bold">Pro S-Tier Tournaments Won</div>
+        </div>
+        <div class="border border-white/5 bg-surface p-8 rounded-custom text-center hover:border-brand/30 transition-all duration-300 hover:-translate-y-1">
+          <div class="text-4xl font-black text-brand mb-2">47</div>
+          <div class="text-[10px] uppercase tracking-widest text-white/50 font-bold">Total Tournaments Won</div>
+        </div>
+        <div class="border border-white/5 bg-surface p-8 rounded-custom text-center hover:border-brand/30 transition-all duration-300 hover:-translate-y-1">
+          <div class="text-4xl font-black text-brand mb-2">2x</div>
+          <div class="text-[10px] uppercase tracking-widest text-white/50 font-bold">FC Pro World Cup Winner</div>
+        </div>
+        <div class="border border-white/5 bg-surface p-8 rounded-custom text-center hover:border-brand/30 transition-all duration-300 hover:-translate-y-1">
+          <div class="text-4xl font-black text-brand mb-2">#1</div>
+          <div class="text-[10px] uppercase tracking-widest text-white/50 font-bold">Global Ranking (2023)(2024)(2025)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-32 bg-surface relative overflow-hidden" id="journey">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-brand/20 via-transparent to-transparent"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-8 relative z-10">
+      <div class="text-center mb-20">
+        <h2 class="text-5xl font-black uppercase tracking-tighter mb-4">Career <span class="text-brand">Journey</span></h2>
+        <p class="text-white/40">The evolution of a champion</p>
+      </div>
+      
+      <div class="relative">
+        <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[1px] bg-brand/30"></div>
+        <div class="space-y-12 md:space-y-0">
+          
+          <div class="relative flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 md:pr-12 text-center md:text-right">
+              <div class="text-brand font-bold text-sm uppercase tracking-widest mb-2">2020</div>
+              <h4 class="text-xl font-bold uppercase mb-2">The Beginning</h4>
+              <p class="text-white/40 text-sm">Dominated local grassroots tournaments in Asia, winning 12 consecutive events.</p>
+            </div>
+            <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-brand border-4 border-dark z-20"></div>
+            <div class="md:w-1/2 md:pl-12"></div>
+          </div>
+          
+          <div class="relative flex flex-col md:flex-row items-center md:mt-16">
+            <div class="md:w-1/2 md:pr-12"></div>
+            <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-brand border-4 border-dark z-20"></div>
+            <div class="md:w-1/2 md:pl-12 text-center md:text-left">
+              <div class="text-brand font-bold text-sm uppercase tracking-widest mb-2">2021</div>
+              <h4 class="text-xl font-bold uppercase mb-2">Pro Scouting</h4>
+              <p class="text-white/40 text-sm">Signed first professional contract after finishing Top 4 in the Regional Qualifiers.</p>
+            </div>
+          </div>
+          
+          <div class="relative flex flex-col md:flex-row items-center md:mt-16">
+            <div class="md:w-1/2 md:pr-12 text-center md:text-right">
+              <div class="text-brand font-bold text-sm uppercase tracking-widest mb-2">2023</div>
+              <h4 class="text-xl font-bold uppercase mb-2">World Dominance</h4>
+              <p class="text-white/40 text-sm">Crowned World Champion in Riyadh after a historic undefeated bracket run.</p>
+            </div>
+            <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-brand border-4 border-dark z-20 ring-4 ring-brand/20"></div>
+            <div class="md:w-1/2 md:pl-12"></div>
+          </div>
+
+          <div class="relative flex flex-col md:flex-row items-center md:mt-16">
+            <div class="md:w-1/2 md:pr-12"></div>
+            <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-brand border-4 border-dark z-20"></div>
+            <div class="md:w-1/2 md:pl-12 text-center md:text-left">
+              <div class="text-brand font-bold text-sm uppercase tracking-widest mb-2">2025</div>
+              <h4 class="text-xl font-bold uppercase mb-2">World Dominance</h4>
+              <p class="text-white/40 text-sm">Crowned World Champion for Second Time in Riyadh after a historic undefeated bracket run.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-32 relative overflow-hidden" data-purpose="about-section" id="about">
+    <div class="absolute top-0 right-0 w-1/3 h-full bg-brand/5 blur-[120px] -z-10"></div>
+    <div class="max-w-7xl mx-auto px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        
+        <div class="relative">
+          <div class="aspect-[4/5] bg-surface rounded-custom overflow-hidden border border-white/10">
+            <img alt="Professional Athlete Portrait" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7Zj9m4eKWaxkzQ0WJ9MKGsKopEycXd0eVB0NlsVNZDVeLhFdLbRYnuZ-d-2gKn12N_rMrRZs_CIAwBesPiAXr01bw46k0m5-G5Bq19uQoFohPUbQnDWGMuxrs7MY3Npic46MZsZnKKJWqhx9rV7QFJJdvlRyY3AZWoUjMGvbNzA5wVUjZPA2LRvRS0G6KK33jGrBzuhjUc0xinAvNHlsMJSjY9j9C3K2LXZS5mpCafoCNUZXRsYbyp4YIAIxsQptrvRGk7L3-Eqx_"/>
+          </div>
+          <div class="absolute -bottom-10 -right-10 glass-card p-8 rounded-custom hidden md:block animate-pulse-slow border-brand/40 scale-110">
+            <div class="text-4xl font-black text-brand">10K+</div>
+            <div class="text-[10px] uppercase tracking-widest text-white/50">Hours Played</div>
+          </div>
+        </div>
+        
+        <div>
+          <h2 class="text-5xl font-black uppercase tracking-tighter mb-10 leading-none">The Mind Behind<br/>The <span class="text-brand">Controller</span></h2>
+          <div class="space-y-6 text-white/60 leading-relaxed font-light">
+            <p>Starting from local tournaments to the biggest stages in Riyadh and Dubai, the journey has been defined by precision and psychological resilience.</p>
+            <p>I specialize in high-pressure tactical adjustments and hyper-responsive defensive systems. Every match is a game of chess played at light speed.</p>
+          </div>
+          
+          <div class="mt-12 grid grid-cols-2 gap-8">
+            <div class="border-l-2 border-brand pl-6">
+              <h4 class="text-xs uppercase tracking-widest text-white/40 mb-2">Current Org</h4>
+              <p class="font-bold">Manchester City</p>
+            </div>
+            <div class="border-l-2 border-brand pl-6">
+              <h4 class="text-xs uppercase tracking-widest text-white/40 mb-2">Hometown</h4>
+              <p class="font-bold">Kolhapur, India</p>
+            </div>
+            <div class="border-l-2 border-brand pl-6">
+              <h4 class="text-xs uppercase tracking-widest text-white/40 mb-2">Playstyle</h4>
+              <p class="font-bold">Aggressive Counter-Attacking</p>
+            </div>
+            <div class="border-l-2 border-brand pl-6">
+              <h4 class="text-xs uppercase tracking-widest text-white/40 mb-2">Fav Formation</h4>
+              <p class="font-bold">4-3-2-1</p>
+            </div>
+            <div class="border-l-2 border-brand pl-6 col-span-2">
+              <h4 class="text-xs uppercase tracking-widest text-white/40 mb-2">Signature Move</h4>
+              <p class="font-bold">Precision Power Shot</p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  <section class="py-20 bg-dark border-y border-white/5" id="sponsors">
+    <div class="max-w-7xl mx-auto px-8 text-center">
+      <h4 class="text-xs font-bold uppercase tracking-widest text-white/40 mb-12">Official Partners</h4>
+      <div class="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-60">
+        <div class="text-2xl font-black tracking-tighter hover:text-brand transition-colors cursor-pointer">RED BULL</div>
+        <div class="text-2xl font-black tracking-widest hover:text-brand transition-colors cursor-pointer">SONY INZONE</div>
+        <div class="text-2xl font-black italic tracking-tighter hover:text-brand transition-colors cursor-pointer">ADIDAS</div>
+        <div class="text-2xl font-black tracking-widest hover:text-brand transition-colors cursor-pointer">SECRETLAB</div>
+        <div class="text-2xl font-black tracking-widest hover:text-brand transition-colors cursor-pointer">ASUS</div>
+      </div>
+    </div>
+  </section>
+  <footer class="bg-surface pt-32 pb-12" data-purpose="footer" id="contact">
+    <div class="max-w-7xl mx-auto px-8 text-center">
+      <h2 class="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-12">Let's <span class="text-brand">Collab</span></h2>
+      <a class="text-2xl md:text-4xl font-light hover:text-brand transition-colors underline underline-offset-8 decoration-brand/30" href="mailto:pro@athlete.com">hello@worldchampion.com</a>
+      
+      <div class="mt-24 flex justify-center gap-12">
+        <a class="text-white/40 hover:text-brand transition-all" href="#">Twitch</a>
+        <a class="text-white/40 hover:text-brand transition-all" href="#">X (Twitter)</a>
+        <a class="text-white/40 hover:text-brand transition-all" href="#">Instagram</a>
+        <a class="text-white/40 hover:text-brand transition-all" href="#">YouTube</a>
+      </div>
+      
+      <div class="mt-24 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+        <p class="text-[10px] uppercase tracking-widest text-white/20">© 2025 World Champion. All rights reserved.</p>
+        <div class="flex gap-8">
+          <p class="text-[10px] uppercase tracking-widest text-white/20 cursor-pointer hover:text-white transition-colors">Privacy Policy</p>
+          <p class="text-[10px] uppercase tracking-widest text-white/20 cursor-pointer hover:text-white transition-colors">Terms of Service</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script data-purpose="canvas-setup">
+    const container = document.getElementById('canvas-container');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    container.appendChild(renderer.domElement);
+
+    // Create a particle field
+    const particlesCount = 2000;
+    const positions = new Float32Array(particlesCount * 3);
+    for(let i = 0; i < particlesCount * 3; i++) {
+      positions[i] = (Math.random() - 0.5) * 20;
+    }
+    const particlesGeometry = new THREE.BufferGeometry();
+    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const particlesMaterial = new THREE.PointsMaterial({
+      size: 0.015,
+      color: 0xff3800,
+      transparent: true,
+      opacity: 0.8
+    });
+    const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+    scene.add(particles);
+
+    // Create a 3D Football (Wireframe)
+    const geometry = new THREE.IcosahedronGeometry(2.5, 1);
+    const material = new THREE.MeshPhongMaterial({
+      color: 0xff3800,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.2,
+      emissive: 0xff3800,
+      emissiveIntensity: 0.5
+    });
+    const football = new THREE.Mesh(geometry, material);
+    scene.add(football);
+
+    // Lights
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+    scene.add(ambientLight);
+    const pointLight = new THREE.PointLight(0xff3800, 5);
+    pointLight.position.set(5, 5, 5);
+    scene.add(pointLight);
+
+    camera.position.z = 10;
+
+    function animate() {
+      requestAnimationFrame(animate);
+      
+      football.rotation.x += 0.002;
+      football.rotation.y += 0.003;
+      
+      particles.rotation.y += 0.0005;
+      
+      // Dynamic mouse interaction
+      const mouseX = (window.innerWidth / 2 - (window.mouseX || window.innerWidth / 2)) * 0.0001;
+      const mouseY = (window.innerHeight / 2 - (window.mouseY || window.innerHeight / 2)) * 0.0001;
+      
+      scene.rotation.y += (mouseX - scene.rotation.y) * 0.05;
+      scene.rotation.x += (mouseY - scene.rotation.x) * 0.05;
+
+      renderer.render(scene, camera);
+    }
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      window.mouseX = e.clientX;
+      window.mouseY = e.clientY;
+    });
+
+    animate();
+  </script>
+  </body>
+</html> 
